@@ -4,7 +4,7 @@ import Cube from "./Cube";
 export default function Scene() {
   return (
     <>
-      <ambientLight intensity={2} />
+      <ambientLight intensity={1.5} />
 
       <directionalLight
         position={[5, 5, 5]}
@@ -13,7 +13,7 @@ export default function Scene() {
 
       <directionalLight
         position={[-5, -5, -5]}
-        intensity={1}
+        intensity={1.5}
       />
 
       <Cube />
