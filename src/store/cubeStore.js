@@ -77,7 +77,7 @@ function rotateColorsL(colors) {
 }
 
 /**
- * Rotate colors for U move: Front → Left → Back → Right → Front
+ * Rotate colors for U move: Front → Right → Back → Left → Front
  * Top face stays on top, Bottom face stays on bottom
  */
 function rotateColorsU(colors) {
@@ -86,13 +86,13 @@ function rotateColorsU(colors) {
     left: colors.back,
     top: colors.top,
     bottom: colors.bottom,
-    front: colors.right,
-    back: colors.left,
+    front: colors.left,
+    back: colors.right,
   };
 }
 
 /**
- * Rotate colors for D move: Front → Right → Back → Left → Front
+ * Rotate colors for D move: Front → Left → Back → Right → Front
  * Top face stays on top, Bottom face stays on bottom
  */
 function rotateColorsD(colors) {
@@ -101,8 +101,8 @@ function rotateColorsD(colors) {
     left: colors.front,
     top: colors.top,
     bottom: colors.bottom,
-    front: colors.left,
-    back: colors.right,
+    front: colors.right,
+    back: colors.left,
   };
 }
 
