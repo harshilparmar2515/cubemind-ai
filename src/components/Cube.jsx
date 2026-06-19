@@ -1,20 +1,19 @@
 import Cubie from "./Cubie";
+import { useCubeStore } from "../store/cubeStore";
 
 export default function Cube() {
-  const cubies = [];
+  const cubies = useCubeStore((state) => state.cubies);
 
-  for (let x = -1; x <= 1; x++) {
-    for (let y = -1; y <= 1; y++) {
-      for (let z = -1; z <= 1; z++) {
-        cubies.push(
-          <Cubie
-            key={`${x}-${y}-${z}`}
-            position={[x, y, z]}
-          />
-        );
-      }
-    }
-  }
-
-  return <group>{cubies}</group>;
+  return (
+    <group>
+      {cubies.map((cubie) => (
+        <Cubie
+          key={cubie.id}
+          position={cubie.position}
+          colors={cubie.colors}
+          id={cubie.id}
+        />
+      ))}
+    </group>
+  );
 }
