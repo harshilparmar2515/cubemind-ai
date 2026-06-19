@@ -72,6 +72,26 @@ export default function Controls() {
           B
         </button>
       </div>
+      <div>
+        <button
+  onClick={() => {
+    const moves = ["R", "L", "U", "D", "F", "B"];
+    const store = useCubeStore.getState();
+
+    for (let i = 0; i < 20; i++) {
+      const move =
+        moves[Math.floor(Math.random() * moves.length)];
+
+      setTimeout(() => {
+        store.animateMove(move);
+      }, i * 400);
+    }
+  }}
+  className="px-4 py-2 bg-purple-500 text-white rounded"
+>
+  Scramble
+</button>
+      </div>
 
       {/* Bottom Row: Reset */}
       <button

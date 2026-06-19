@@ -1,8 +1,11 @@
 import { Canvas } from "@react-three/fiber";
 import Scene from "./components/Scene";
 import Controls from "./components/Controls";
+import useKeyboardControls from "./hooks/useKeyboardControls";
 
 export default function App() {
+  useKeyboardControls();
+ 
   return (
     <>
       <Controls />
