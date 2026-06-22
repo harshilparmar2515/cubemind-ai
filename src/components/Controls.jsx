@@ -3,6 +3,7 @@ import { useCubeStore } from "../store/cubeStore";
 export default function Controls() {
   const resetCube = useCubeStore((state) => state.resetCube);
   const rotateR = useCubeStore((state) => state.rotateR);
+  const rotateRPrime = useCubeStore((state) => state.rotateRPrime);
   const rotateL = useCubeStore((state) => state.rotateL);
   const rotateU = useCubeStore((state) => state.rotateU);
   const rotateD = useCubeStore((state) => state.rotateD);
@@ -62,6 +63,14 @@ export default function Controls() {
           title="Rotate Right"
         >
           R
+        </button>
+        <button
+         onClick={rotateRPrime}
+         disabled={isAnimating}
+          className={buttonClass("bg-pink-500 text-white")}
+         title="Rotate Right Prime"
+        >
+         R'
         </button>
         <button
           onClick={rotateB}

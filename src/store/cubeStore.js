@@ -60,7 +60,17 @@ function rotateColorsR(colors) {
     back: colors.bottom,
   };
 }
+function rotateColorsRPrime(colors) {
+  return {
+    right: colors.right,
+    left: colors.left,
 
+    top: colors.front,
+    front: colors.bottom,
+    bottom: colors.back,
+    back: colors.top,
+  };
+}
 /**
  * Rotate colors for L move: Top → Back → Bottom → Front → Top
  * Left face stays on left, Right face stays on right
@@ -151,11 +161,12 @@ const moveConfigs = {
     axis: 'x',
     direction: 1,
   },
-  R_PRIME: {
+R_PRIME: {
   selector: (cubie) => cubie.position[0] === 1,
 
   transform: (cubie) => ({
     ...cubie,
+
     position: [
       cubie.position[0],
       cubie.position[2],
@@ -284,6 +295,7 @@ export const useCubeStore = create((set, get) => ({
 
   // Legacy single-move methods for backwards compatibility
   rotateR: () => get().animateMove('R'),
+  rotateRPrime: () => get().animateMove("R_PRIME"),
   rotateL: () => get().animateMove('L'),
   rotateU: () => get().animateMove('U'),
   rotateD: () => get().animateMove('D'),
