@@ -6,12 +6,12 @@ import { create } from "zustand";
  */
 function initializeColors(x, y, z) {
   return {
-    right: x === 1 ? "#ff0000" : null,    // red
-    left: x === -1 ? "#ff8c00" : null,    // orange
-    top: y === 1 ? "#ffffff" : null,      // white
-    bottom: y === -1 ? "#ffff00" : null,  // yellow
-    front: z === 1 ? "#00ff00" : null,    // green
-    back: z === -1 ? "#0000ff" : null,    // blue
+    right: x === 1 ? "#ff0000" : null,    
+    left: x === -1 ? "#ff8c00" : null,    
+    top: y === 1 ? "#ffffff" : null,   
+    bottom: y === -1 ? "#ffff00" : null,  
+    front: z === 1 ? "#00ff00" : null,    
+    back: z === -1 ? "#0000ff" : null,   
   };
 }
 
@@ -146,10 +146,28 @@ const moveConfigs = {
       ...cubie,
       position: [cubie.position[0], -cubie.position[2], cubie.position[1]],
       colors: rotateColorsR(cubie.colors),
+      
     }),
     axis: 'x',
     direction: 1,
   },
+  R_PRIME: {
+  selector: (cubie) => cubie.position[0] === 1,
+
+  transform: (cubie) => ({
+    ...cubie,
+    position: [
+      cubie.position[0],
+      cubie.position[2],
+      -cubie.position[1],
+    ],
+
+    colors: rotateColorsRPrime(cubie.colors),
+  }),
+
+  axis: "x",
+  direction: -1,
+},
   L: {
     selector: (cubie) => cubie.position[0] === -1,
     transform: (cubie) => ({
